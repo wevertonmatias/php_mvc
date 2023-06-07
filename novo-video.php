@@ -12,4 +12,9 @@ $statement = $pdo->prepare($sql);
 $statement->bindValue(':url', $url);
 $statement->bindValue(':title', $titulo);
 
-var_dump($statement->execute());
+if ($statement->execute() === false){
+    header('Location: /index.php?sucesso=0');
+}else{
+    header('Location: /index.php?sucesso=1');
+}
+
